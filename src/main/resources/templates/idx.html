@@ -1,18 +1,17 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>GogiIndex</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
 </head>
 <body>
 <h1>Fuck you from HTML</h1>
-<div style="width: 530px;height: 50px;background-color: #00ff00; color:black;">
-    <p th:text="${date}">Date: </p>
-    <!--<h2 th:text="${user} + ' go home'"></h2>-->
-</div>
 
 <th:block th:each="user : ${users}">
-        <h4 th:text="${user.name} + ': ' + ${user.age} + ' y.o.'"></h4>
+    <h4 th:text="${user.name} + ': ' + ${user.age} + ' y.o.'"></h4>
 </th:block>
 </body>
 </html>
