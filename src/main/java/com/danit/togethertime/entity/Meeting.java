@@ -2,6 +2,7 @@ package com.danit.togethertime.entity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name = "tt_meeting")
@@ -18,6 +19,18 @@ public class Meeting {
   @Column(name = "dateend")
   private Timestamp dateEnd;
 
+  @ManyToMany(cascade = { CascadeType.ALL })
+  @JoinTable(
+          name = "rel_meeting_users",
+          joinColumns = { @JoinColumn(name = "meetingid") },
+          inverseJoinColumns = { @JoinColumn(name = "userid") }
+  )
+  private List<Meeting> meetings;
+  private List<User> perticipants;
+
+  public List<User> getPerticipants() {
+    return perticipants;
+  }
 
   public Long getMeetingId() {
     return meetingId;
