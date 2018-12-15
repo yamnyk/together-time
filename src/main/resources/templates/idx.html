@@ -10,8 +10,8 @@
 <body>
 <h1>Fuck you from HTML</h1>
 
-<th:block th:each="user : ${users}">
-    <h4 th:text="${user.name} + ': ' + ${user.age} + ' y.o.'"></h4>
+<th:block th:each="meeting : ${meetings}">
+    <h4 th:text="${meeting.dateStart} + ': ' + ${meeting.dateEnd}"></h4>
 </th:block>
 </body>
 </html>
