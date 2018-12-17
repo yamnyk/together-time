@@ -7,13 +7,14 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.util.List;
 
-@Entity
-@Table(name = "tt_meeting")
 @Data
 @NoArgsConstructor
 @Getter
 @Setter
+@Entity
+@Table(name = "tt_meeting")
 public class MeetingEntity {
 
   @Id
@@ -26,5 +27,8 @@ public class MeetingEntity {
 
   @Column(name = "dateend")
   private Timestamp dateEnd;
+
+  @OneToMany(mappedBy = "meeting")
+  private List<Comment> comments;
 
 }
