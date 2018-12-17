@@ -7,25 +7,24 @@ import lombok.Setter;
 
 import javax.persistence.*;
 
-@Data
-@NoArgsConstructor
-@Getter
 @Setter
+@Getter
+@NoArgsConstructor
 @Entity
 @Table(name = "tt_comments")
-public class Comment {
+public class CommentEntity {
 
   @Id
   @Column(name = "commentid")
   private Long commentId;
 
-  @ManyToOne
-  @JoinColumn(name = "meetingid")
-  private MeetingEntity meeting;
-
   @Column(name = "userid")
   private Long userId;
 
-  @Column(name = "comment")
-  private String comment;
+  @Column(name = "commenttext")
+  private String commentText;
+
+  @ManyToOne
+  @JoinColumn(name="c_meetingid", nullable=false)
+  private MeetingEntity meetingLink;
 }
