@@ -18,7 +18,7 @@ public class CommentEntity {
   private Long commentId;
 
   @Column(name = "userid")
-  private Long userId;
+  private UserEntity author;
 
   @Column(name = "commenttext")
   private String commentText;
