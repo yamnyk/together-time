@@ -5,13 +5,31 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Meetings</title>
+    <link rel="stylesheet" href="css/reset.css">
 </head>
 <body>
-<h1>Fuck you from HTML</h1>
+<div class="container">
+    <h2 class="meetings-head">Your meetings</h2>
+    <div class="meetings-table">
+        <th:block th:each="meeting : ${meetings}">
+            <div class="meetings-item">
+                <div class="meetings-item__time">
+                    <p class="meetings-item__time-start" th:text="${meeting.dateStart}"></p>
+                </div>
+                <div class="meetings-item__time">
+                    <p class="meetings-item__time-end" th:text="${meeting.dateEnd}"></p>
+                </div>
+                <div class="meeting-item_comments" th:each="comment : ${meeting.commentEntities}">
+                    <!--<p class="comments-author" th:text="${comment.user.login}"></p>-->
+                    <p class="comments-text" th:text="${comment.toString()}"></p>
+                </div>
+            </div>
+        </th:block>
+    </div>
+</div>
 
-<th:block th:each="meeting : ${meetings}">
-    <h4 th:text="${meeting.dateStart} + ': ' + ${meeting.dateEnd} + ' ' + ${meeting.commentEntities}"}></h4>
-</th:block>
+
+
 </body>
 </html>

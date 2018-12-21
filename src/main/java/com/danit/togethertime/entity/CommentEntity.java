@@ -13,7 +13,6 @@ import javax.persistence.*;
 @Entity
 @Table(name = "tt_comments")
 public class CommentEntity {
-
   @Id
   @Column(name = "commentid")
   private Long commentId;
@@ -27,4 +26,10 @@ public class CommentEntity {
   @ManyToOne
   @JoinColumn(name="c_meetingid", nullable=false)
   private MeetingEntity meetingLink;
+
+  @Override
+  public String toString() {
+    return this.commentText;
+  }
 }
+
