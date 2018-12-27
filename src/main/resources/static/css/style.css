@@ -45,11 +45,14 @@ section {
     text-align: center;
 }
 
+.comments_item {
+    background-color: #8779d3;
+}
+
 .comments_head {
     font-size: 1.8rem;
     font-weight: 700;
     text-transform: uppercase;
-
     margin: 1.5rem;
 }
 

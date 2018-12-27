@@ -1,23 +1,22 @@
 package com.danit.togethertime.entity;
 
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.*;
 
-@Setter
-@Getter
+@Data
 @NoArgsConstructor
 @Entity
 @Table(name = "tt_comments")
 public class CommentEntity {
   @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
   @Column(name = "commentid")
   private Long commentId;
 
-  @Column(name = "userid")
+  @ManyToOne
+  @JoinColumn(name="userid", nullable=false)
   private UserEntity author;
 
   @Column(name = "commenttext")
@@ -26,10 +25,5 @@ public class CommentEntity {
   @ManyToOne
   @JoinColumn(name="c_meetingid", nullable=false)
   private MeetingEntity meetingLink;
-
-  @Override
-  public String toString() {
-    return this.commentText;
-  }
 }
 
