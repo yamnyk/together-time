@@ -1,12 +1,12 @@
 package com.danit.togethertime.entity;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.List;
 
 @Setter
@@ -30,4 +30,11 @@ public class MeetingEntity {
   @OneToMany(mappedBy = "meetingLink", cascade = CascadeType.ALL)
   private List<CommentEntity> commentEntities;
 
+  @ManyToMany
+  @JoinTable(
+      name = "rel_users_meetings",
+      joinColumns = {@JoinColumn(name = "meetingid")},
+      inverseJoinColumns = {@JoinColumn(name = "userid")}
+  )
+  private List<UserEntity> participants;
 }
