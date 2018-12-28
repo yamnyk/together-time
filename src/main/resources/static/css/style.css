@@ -39,14 +39,17 @@ section {
 
     border-radius: 0.8rem;
     background-color: gray;
+    transition: 0.2s background-color ease-in-out;
 }
 
 .meetings-item:last-of-type {
     grid-template-columns: 1fr 5fr 1fr;
     grid-template-rows: 1fr 2fr 1fr;
-    cursor: pointer;
 }
 
+.meetings-item:last-of-type:hover {
+    background-color: #707070;
+}
 .meetings-item__time {
     align-self: center;
     justify-self: center;
@@ -114,4 +117,22 @@ section {
     text-align: center;
     text-transform: uppercase;
     color: #fff;
+    cursor: pointer;
+}
+
+.meeting-item__new {
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.new-time {
+
+}
+
+.new-cancel {
+    cursor: pointer;
+}
+
+.display-block {
+    display: block;
 }

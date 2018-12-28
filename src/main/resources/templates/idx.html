@@ -38,11 +38,17 @@
         </th:block>
         <div class="meetings-item">
             <p class="meetings-item__add">Add new</p>
+            <form method="post" class="meeting-item__new">
+                <input type="date" class="new-time" name="dateStart">
+                <input type="date" class="new-time" name="dateEnd">
+                <span class="new-cancel">&#9747</span>
+            </form>
         </div>
     </section>
 </div>
 
-
+<script src="../static/js/jquery.min.js" th:src="@{../js/jquery.min.js}"></script>
+<script src="../static/js/meetings.js" th:src="@{../js/meetings.js}"></script>
 
 </body>
 </html>
