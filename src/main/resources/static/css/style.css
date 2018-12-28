@@ -122,7 +122,7 @@ section {
 
 .meeting-item__new {
     display: grid;
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: 1fr;
 }
 
 .new-time {
@@ -130,6 +130,7 @@ section {
 }
 
 .new-cancel {
+    justify-self: self-start;
     cursor: pointer;
 }
 
