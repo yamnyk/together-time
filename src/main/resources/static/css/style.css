@@ -121,6 +121,8 @@ section {
 }
 
 .meeting-item__new {
+    grid-column: 2 / 3;
+    grid-row: 2;
     display: grid;
     grid-template-rows: 1fr;
 }
