@@ -1,7 +1,9 @@
 package com.danit.togethertime.service;
 
+import com.danit.togethertime.DTO.MeetingDTO;
 import com.danit.togethertime.entity.MeetingEntity;
 import com.danit.togethertime.repository.MeetingsRepository;
+import com.danit.togethertime.utils.AppUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,5 +18,14 @@ public class MeetingService {
     List<MeetingEntity> all = meetingsRepository.findAll();
     int a = 0;
     return all;
+  }
+
+  public MeetingEntity addNew(MeetingDTO meetingDTO) {
+    MeetingEntity meetingEntity = new MeetingEntity();
+
+    meetingEntity.setDateStart(AppUtils.dateToTimestamp(meetingDTO.getDateStart()));
+    meetingEntity.setDateEnd(AppUtils.dateToTimestamp(meetingDTO.getDateEnd()));
+
+    return meetingsRepository.save(meetingEntity);
   }
 }

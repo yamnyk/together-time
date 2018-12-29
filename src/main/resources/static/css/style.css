@@ -43,8 +43,8 @@ section {
 }
 
 .meetings-item:last-of-type {
-    grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: 1fr 2fr 1fr;
+    grid-template-columns: 1fr 12fr 1fr;
+    grid-template-rows: 1fr 4fr 1fr;
 }
 
 .meetings-item:last-of-type:hover {

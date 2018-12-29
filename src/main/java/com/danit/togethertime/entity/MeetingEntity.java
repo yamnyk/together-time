@@ -37,4 +37,5 @@ public class MeetingEntity {
       inverseJoinColumns = {@JoinColumn(name = "userid")}
   )
   private List<UserEntity> participants;
+
 }
