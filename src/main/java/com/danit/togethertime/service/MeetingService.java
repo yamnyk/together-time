@@ -34,6 +34,7 @@ public class MeetingService {
   }
 
   public void deleteOneById(MeetingDTO meetingDTO) {
-    meetingsRepository.delete(modelMapper.map(meetingDTO, MeetingEntity.class));
+    MeetingEntity map = modelMapper.map(meetingDTO, MeetingEntity.class);
+    meetingsRepository.delete(map);
   }
 }

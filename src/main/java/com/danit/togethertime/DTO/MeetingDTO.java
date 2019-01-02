@@ -13,6 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 public class MeetingDTO {
 
+  private Long id;
+
   private String dateStart;
 
   private String dateEnd;

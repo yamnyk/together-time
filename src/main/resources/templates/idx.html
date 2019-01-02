@@ -15,11 +15,12 @@
     <section class="meetings-table">
         <th:block th:each="meeting : ${meetings}">
             <form class="meetings-item" action="/meetings/delete" method="post">
-                <input type="submit">
+                <input type="submit" value="Delete">
+                <input type="text" readonly name="id" th:hidden="true" th:value="${meeting.meetingId}">
 
-                <input class="meetings-item__time" type="datetime-local" disabled name="dateStart" th:value="${meeting.dateStart}">
+                <input class="meetings-item__time" type="text" readonly name="dateStart" th:value="${meeting.dateStart}">
 
-                <input class="meetings-item__time" type="datetime-local" disabled name="dateEnd" th:value="${meeting.dateEnd}">
+                <input class="meetings-item__time" type="text" readonly name="dateEnd" th:value="${meeting.dateEnd}">
                 <div class="meetings-item__participants">
                     <p class="participants-head">Participants:</p>
                     <th:block th:each="user : ${meeting.participants}">
