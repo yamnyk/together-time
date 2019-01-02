@@ -23,8 +23,8 @@ public class MeetingService {
   public MeetingEntity addNew(MeetingDTO meetingDTO) {
     MeetingEntity meetingEntity = new MeetingEntity();
 
-    meetingEntity.setDateStart(AppUtils.dateToTimestamp(meetingDTO.getDateStart()));
-    meetingEntity.setDateEnd(AppUtils.dateToTimestamp(meetingDTO.getDateEnd()));
+    meetingEntity.setDateStart(AppUtils.stringToTimestamp(meetingDTO.getDateStart()));
+    meetingEntity.setDateEnd(AppUtils.stringToTimestamp(meetingDTO.getDateEnd()));
 
     return meetingsRepository.save(meetingEntity);
   }

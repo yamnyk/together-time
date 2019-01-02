@@ -38,9 +38,10 @@
         </th:block>
         <div class="meetings-item">
             <p class="meetings-item__add">Add new</p>
-            <form action="/meetings/add" method="post" class="meeting-item__new">
+            <form id="newMeeting" action="/meetings/add" method="post" class="meeting-item__new">
                 <input type="datetime-local" required class="new-time" name="dateStart">
                 <input type="datetime-local" class="new-time" name="dateEnd">
+                <input type="text" class="new-participant" placeholder="your friend login">
                 <!--<input type="text" class="new-comment" name="commentText" placeholder="type you comment here">-->
                 <input type="submit" class="new-submit" value="create">
                 <span class="new-cancel">&#9747</span>

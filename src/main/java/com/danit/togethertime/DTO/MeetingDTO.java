@@ -12,10 +12,9 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 public class MeetingDTO {
-  @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-  private Date dateStart;
 
-  @DateTimeFormat(pattern = "yyyy-MM-dd'T'HH:mm:ss")
-  private Date dateEnd;
+  private String dateStart;
+
+  private String dateEnd;
 //  private List<CommentDTO> comments;
 }

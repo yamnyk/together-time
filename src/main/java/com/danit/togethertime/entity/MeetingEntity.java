@@ -27,7 +27,7 @@ public class MeetingEntity {
   @Column(name = "dateend")
   private Timestamp dateEnd;
 
-  @OneToMany(mappedBy = "meetingLink", cascade = CascadeType.ALL)
+  @OneToMany(mappedBy = "meetingLink", cascade = CascadeType.DETACH)
   private List<CommentEntity> commentEntities;
 
   @ManyToMany

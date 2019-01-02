@@ -15,14 +15,14 @@ public class CommentEntity {
   @Column(name = "commentid")
   private Long commentId;
 
-  @ManyToOne
+  @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name="userid", nullable=false)
   private UserEntity author;
 
   @Column(name = "commenttext")
   private String commentText;
 
-  @ManyToOne
+  @ManyToOne(cascade = CascadeType.ALL)
   @JoinColumn(name="c_meetingid", nullable=false)
   private MeetingEntity meetingLink;
 }
