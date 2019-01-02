@@ -22,8 +22,7 @@ public class CommentEntity {
   @Column(name = "commenttext")
   private String commentText;
 
-  @ManyToOne(cascade = CascadeType.ALL)
+  @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
   @JoinColumn(name="c_meetingid", nullable=false)
   private MeetingEntity meetingLink;
 }
-

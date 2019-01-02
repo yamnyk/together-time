@@ -50,9 +50,20 @@ section {
 .meetings-item:last-of-type:hover {
     background-color: #707070;
 }
+
+.meetings-item__delete {
+    border: none;
+    background-color: black;
+    grid-column: 1 / 3;
+}
+
 .meetings-item__time {
     align-self: center;
     justify-self: center;
+    text-align: center;
+    background-color: transparent;
+    border: none;
+    color: #eff;
 }
 
 .meetings-item__participants {

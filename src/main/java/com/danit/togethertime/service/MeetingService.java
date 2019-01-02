@@ -4,6 +4,7 @@ import com.danit.togethertime.DTO.MeetingDTO;
 import com.danit.togethertime.entity.MeetingEntity;
 import com.danit.togethertime.repository.MeetingsRepository;
 import com.danit.togethertime.utils.AppUtils;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,6 +14,9 @@ import java.util.List;
 public class MeetingService {
   @Autowired
   private MeetingsRepository meetingsRepository;
+
+  @Autowired
+  private ModelMapper modelMapper;
 
   public List<MeetingEntity> getAll() {
     List<MeetingEntity> all = meetingsRepository.findAll();
@@ -27,5 +31,9 @@ public class MeetingService {
     meetingEntity.setDateEnd(AppUtils.stringToTimestamp(meetingDTO.getDateEnd()));
 
     return meetingsRepository.save(meetingEntity);
+  }
+
+  public void deleteOneById(MeetingDTO meetingDTO) {
+    meetingsRepository.delete(modelMapper.map(meetingDTO, MeetingEntity.class));
   }
 }
