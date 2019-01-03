@@ -7,20 +7,22 @@ import java.util.Date;
 
 public class AppUtils {
   public static Timestamp stringToTimestamp(String inputDate) {
+    Timestamp res = null;
+
     try {
 
-      return new Timestamp(stringToDate("yyyy-MM-dd'T'hh:mm", inputDate).getTime());
+      res = new Timestamp(stringToDate("yyyy-MM-dd'T'hh:mm", inputDate).getTime());
 
     } catch (ParseException e) {
       try {
 
-        return new Timestamp(stringToDate("yyyy-MM-dd hh:mm", inputDate).getTime());
+        res = new Timestamp(stringToDate("yyyy-MM-dd hh:mm", inputDate).getTime());
 
       } catch (ParseException ex) {
         ex.printStackTrace();
       }
     }
-    return new Timestamp(new Date().getTime());
+    return res;
   }
 
   private static Date stringToDate(String patern, String inputDate) throws ParseException {
