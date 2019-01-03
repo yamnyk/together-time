@@ -25,6 +25,9 @@ public class MeetingEntity {
   @Column(name = "dateend")
   private Timestamp dateEnd;
 
+  @Column(name = "duration")
+  private String duration;
+
   @OneToMany(mappedBy = "meetingLink", fetch = FetchType.EAGER)
   private List<CommentEntity> commentEntities;
 
@@ -37,24 +40,18 @@ public class MeetingEntity {
   private List<UserEntity> participants;
 
   public String getDuration() {
-    StringBuilder sb = new StringBuilder();
+    int diffDays = this.dateEnd.getDay() - this.dateStart.getDay();
+    int diffHours = this.dateEnd.getHours() - this.dateStart.getHours();
+    int diffMin = this.dateEnd.getMinutes() - this.dateStart.getMinutes();
+    int diffSec = this.dateEnd.getSeconds() - this.dateStart.getSeconds();
 
-    long diff = this.dateEnd.getTime() - this.dateStart.getTime();
-
-    int diffDays = (int) (diff / (24 * 60 * 60 * 1000));
-    int diffHours = (int) (diff / (60 * 60 * 1000));
-    int diffMin = (int) (diff / (60 * 1000));
-    int diffSec = (int) (diff / (1000));
-
-    sb.append(diffDays);
-    sb.append("_days ");
-    sb.append(diffHours);
-    sb.append("_hours ");
-    sb.append(diffMin);
-    sb.append("_min ");
-    sb.append(diffSec);
-    sb.append("_sec");
-
-    return sb.toString();
+    return String.valueOf(diffDays) +
+        "-days_" +
+        diffHours +
+        "-hours_" +
+        diffMin +
+        "-min_" +
+        diffSec +
+        "-sec";
   }
 }

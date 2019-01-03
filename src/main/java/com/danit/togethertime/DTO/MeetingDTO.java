@@ -21,10 +21,4 @@ public class MeetingDTO {
   private String dateEnd;
 
   private String duration;
-
-  public MeetingDTO(MeetingEntity meetingEntity) {
-    this.dateStart = meetingEntity.getDateStart().toString();
-    this.dateEnd = meetingEntity.getDateEnd().toString();
-    this.duration = meetingEntity.getDuration();
-  }
 }
