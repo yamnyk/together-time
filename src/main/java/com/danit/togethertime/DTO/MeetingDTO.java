@@ -1,5 +1,7 @@
 package com.danit.togethertime.DTO;
 
+import com.danit.togethertime.entity.MeetingEntity;
+import com.danit.togethertime.utils.AppUtils;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.format.annotation.DateTimeFormat;
@@ -12,11 +14,17 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 public class MeetingDTO {
-
   private Long id;
 
   private String dateStart;
 
   private String dateEnd;
-//  private List<CommentDTO> comments;
+
+  private String duration;
+
+  public MeetingDTO(MeetingEntity meetingEntity) {
+    this.dateStart = meetingEntity.getDateStart().toString();
+    this.dateEnd = meetingEntity.getDateEnd().toString();
+    this.duration = meetingEntity.getDuration();
+  }
 }
