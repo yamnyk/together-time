@@ -34,17 +34,7 @@ public class MeetingService {
   }
 
   public void deleteOne(MeetingDTO meetingDTO) {
-    try {
-
-      MeetingEntity meetingEntity = new MeetingEntity();
-
-      meetingEntity.setMeetingId(meetingDTO.getId());
-      meetingEntity.setDateStart(AppUtils.stringToTimestamp(meetingDTO.getDateStart()));
-      meetingEntity.setDateEnd(AppUtils.stringToTimestamp(meetingDTO.getDateEnd()));
-
-      meetingsRepository.delete(meetingEntity);
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
+    MeetingEntity meetingEntity = modelMapper.map(meetingDTO, MeetingEntity.class);
+    meetingsRepository.deleteById(meetingEntity.getMeetingId());
   }
 }
