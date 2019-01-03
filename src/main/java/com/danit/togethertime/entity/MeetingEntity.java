@@ -31,7 +31,7 @@ public class MeetingEntity {
   @OneToMany(mappedBy = "meetingLink", fetch = FetchType.EAGER)
   private List<CommentEntity> commentEntities;
 
-  @ManyToMany
+  @ManyToMany(cascade = CascadeType.ALL)
   @JoinTable(
       name = "rel_users_meetings",
       joinColumns = {@JoinColumn(name = "meetingid")},
