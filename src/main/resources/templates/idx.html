@@ -15,7 +15,7 @@
     <section class="meetings-table">
         <th:block th:each="meeting : ${meetings}">
             <form class="meetings-item" action="/meetings/delete" method="post">
-                <input type="submit" value="Delete">
+                <input class="meetings-item__delete" type="submit" value="Delete">
                 <input type="text" readonly name="id" th:hidden="true" th:value="${meeting.meetingId}">
 
                 <input class="meetings-item__time" type="text" readonly name="dateStart" th:value="${meeting.dateStart}">

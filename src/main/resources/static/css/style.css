@@ -42,19 +42,21 @@ section {
     transition: 0.2s background-color ease-in-out;
 }
 
-.meetings-item:last-of-type {
+.meetings-item:last-child {
     grid-template-columns: 1fr 12fr 1fr;
     grid-template-rows: 1fr 4fr 1fr;
 }
 
-.meetings-item:last-of-type:hover {
+.meetings-item:last-child:hover {
     background-color: #707070;
 }
 
 .meetings-item__delete {
     border: none;
     background-color: black;
+    color: white;
     grid-column: 1 / 3;
+    cursor: pointer;
 }
 
 .meetings-item__time {

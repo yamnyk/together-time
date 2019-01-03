@@ -8,13 +8,24 @@ import java.util.Date;
 public class AppUtils {
   public static Timestamp stringToTimestamp(String inputDate) {
     try {
-      SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd'T'hh:mm");
-      Date parsedDate= dateFormat.parse(inputDate);
-      Timestamp timestamp = new Timestamp(parsedDate.getTime());
-      return timestamp;
+
+      return new Timestamp(stringToDate("yyyy-MM-dd'T'hh:mm", inputDate).getTime());
+
     } catch (ParseException e) {
-      e.printStackTrace();
+      try {
+
+        return new Timestamp(stringToDate("yyyy-MM-dd hh:mm", inputDate).getTime());
+
+      } catch (ParseException ex) {
+        ex.printStackTrace();
+      }
     }
     return new Timestamp(new Date().getTime());
+  }
+
+  private static Date stringToDate(String patern, String inputDate) throws ParseException {
+    SimpleDateFormat dateFormat = new SimpleDateFormat(patern);
+
+    return dateFormat.parse(inputDate);
   }
 }

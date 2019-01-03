@@ -8,7 +8,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class MeetingController {
@@ -30,7 +29,7 @@ public class MeetingController {
 
   @PostMapping(value = "meetings/delete")
   public String deleteMeeting(@ModelAttribute MeetingDTO meetingDTO) {
-    meetingService.deleteOneById(meetingDTO);
+    meetingService.deleteOne(meetingDTO);
     return "redirect:/";
   }
 }

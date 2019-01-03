@@ -33,8 +33,18 @@ public class MeetingService {
     return meetingsRepository.save(meetingEntity);
   }
 
-  public void deleteOneById(MeetingDTO meetingDTO) {
-    MeetingEntity map = modelMapper.map(meetingDTO, MeetingEntity.class);
-    meetingsRepository.delete(map);
+  public void deleteOne(MeetingDTO meetingDTO) {
+    try {
+
+      MeetingEntity meetingEntity = new MeetingEntity();
+
+      meetingEntity.setMeetingId(meetingDTO.getId());
+      meetingEntity.setDateStart(AppUtils.stringToTimestamp(meetingDTO.getDateStart()));
+      meetingEntity.setDateEnd(AppUtils.stringToTimestamp(meetingDTO.getDateEnd()));
+
+      meetingsRepository.delete(meetingEntity);
+    } catch (Exception e) {
+      e.printStackTrace();
+    }
   }
 }
