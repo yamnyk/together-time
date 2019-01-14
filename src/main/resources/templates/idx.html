@@ -16,7 +16,7 @@
         <th:block th:each="meeting : ${meetings}">
             <form class="meetings-item" action="/meetings/delete" method="post">
                 <input class="meetings-item__delete all-cols-width" type="submit" value="Delete">
-                <input type="text" readonly name="id" th:hidden="true" th:value="${meeting.meetingId}">
+                <input type="text" readonly name="id" th:hidden="true" th:value="${meeting.id}">
 
                 <input class="meetings-item__time" type="text" readonly name="dateStart" th:value="${meeting.dateStart}">
 
@@ -26,14 +26,14 @@
                 <div class="meetings-item__participants all-cols-width">
                     <p class="participants-head">Participants:</p>
                     <th:block th:each="user : ${meeting.participants}">
-                        <a th:href="/users/${user.id}" class="participants-item" th:text="${user.login}"></a>
+                        <a th:href="'users/' + ${user.id}" class="participants-item" th:text="${user.login}"></a>
                     </th:block>
                 </div>
                 <h2 class="comments-head">Comments:</h2>
                 <div class="meeting-item_comments all-cols-width" >
-                    <div class="comments-item" th:each="comment : ${meeting.commentEntities}">
+                    <div class="comments-item" th:each="comment : ${meeting.comments}">
                         <p class="comments-item__author comment-text" th:text="${comment.author.login} +':'"></p>
-                        <p class="comments-item__text comment-text" th:text="${comment.commentText}"></p>
+                        <p class="comments-item__text comment-text" th:text="${comment.message}"></p>
                     </div>
                 </div>
             </form>

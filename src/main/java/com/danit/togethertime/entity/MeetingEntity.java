@@ -25,9 +25,6 @@ public class MeetingEntity {
   @Column(name = "dateend")
   private Timestamp dateEnd;
 
-  @Column(name = "duration")
-  private String duration;
-
   @OneToMany(mappedBy = "meetingLink", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
   private List<CommentEntity> commentEntities;
 
