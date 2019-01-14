@@ -19,9 +19,7 @@ public class MeetingService {
   private ModelMapper modelMapper;
 
   public List<MeetingEntity> getAll() {
-    List<MeetingEntity> all = meetingsRepository.findAll();
-    int a = 0;
-    return all;
+    return meetingsRepository.findAll();
   }
 
   public MeetingEntity addNew(MeetingDTO meetingDTO) {
