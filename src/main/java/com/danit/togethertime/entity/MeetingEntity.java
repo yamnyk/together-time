@@ -28,10 +28,10 @@ public class MeetingEntity {
   @Column(name = "duration")
   private String duration;
 
-  @OneToMany(mappedBy = "meetingLink", fetch = FetchType.EAGER)
+  @OneToMany(mappedBy = "meetingLink", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
   private List<CommentEntity> commentEntities;
 
-  @ManyToMany(cascade = CascadeType.ALL)
+  @ManyToMany
   @JoinTable(
       name = "rel_users_meetings",
       joinColumns = {@JoinColumn(name = "meetingid")},

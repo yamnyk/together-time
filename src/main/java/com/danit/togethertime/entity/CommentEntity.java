@@ -14,7 +14,7 @@ public class CommentEntity {
   @Column(name = "commentid")
   private Long commentId;
 
-  @ManyToOne(cascade = CascadeType.ALL)
+  @ManyToOne
   @JoinColumn(name="userid", nullable=false)
   private UserEntity author;
 

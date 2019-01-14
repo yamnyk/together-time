@@ -26,7 +26,7 @@ public class MeetingController {
     return "redirect:/";
   }
 
-  @PostMapping(value = "meetings/delete")
+  @PostMapping("meetings/delete")
   public String deleteMeeting(@ModelAttribute MeetingDTO meetingDTO) {
     meetingService.deleteOne(meetingDTO);
     return "redirect:/";

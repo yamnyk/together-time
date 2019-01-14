@@ -134,11 +134,21 @@ section {
     grid-column: 2 / 3;
     grid-row: 2;
     display: grid;
-    grid-template-rows: 1fr;
 }
 
 .new-time {
+    justify-self: center;
+    width: 100%;
+    border: none;
+    background-color: lightgray;
+}
 
+.new-time:focus {
+    outline: none;
+}
+
+.new-participant {
+    border: none;
 }
 
 .new-cancel {
