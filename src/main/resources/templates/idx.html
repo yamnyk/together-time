@@ -26,7 +26,7 @@
                 <div class="meetings-item__participants all-cols-width">
                     <p class="participants-head">Participants:</p>
                     <th:block th:each="user : ${meeting.participants}">
-                        <a th:href="'users/' + ${user.id}" class="participants-item" th:text="${user.login}"></a>
+                        <a th:href="'user/' + ${user.id}" class="participants-item" th:text="${user.login}"></a>
                     </th:block>
                 </div>
                 <h2 class="comments-head">Comments:</h2>
