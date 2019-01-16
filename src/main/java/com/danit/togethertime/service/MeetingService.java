@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class MeetingService {
@@ -18,20 +19,29 @@ public class MeetingService {
   @Autowired
   private ModelMapper modelMapper;
 
-  public List<MeetingEntity> getAll() {
-    return meetingsRepository.findAll();
+  public List<MeetingDTO> getAll() {
+
+    List<MeetingDTO> collect = meetingsRepository.findAll()
+        .stream()
+        .map((meeting) -> modelMapper.map(meeting, MeetingDTO.class))
+        .collect(Collectors.toList());
+
+    return collect;
   }
 
   public MeetingEntity addNew(MeetingDTO meetingDTO) {
-    MeetingEntity meetingEntity = new MeetingEntity();
 
-    meetingEntity.setDateStart(AppUtils.stringToTimestamp(meetingDTO.getDateStart()));
-    meetingEntity.setDateEnd(AppUtils.stringToTimestamp(meetingDTO.getDateEnd()));
-
-    return meetingsRepository.save(meetingEntity);
+    return meetingsRepository.save(modelMapper.map(meetingDTO, MeetingEntity.class));
   }
 
-  public void deleteOne(MeetingDTO meetingDTO) {
-    meetingsRepository.deleteById(meetingDTO.getId());
+  public boolean deleteOne(MeetingDTO meetingDTO) {
+    long meetingId = modelMapper
+        .map(meetingDTO, MeetingEntity.class)
+        .getMeetingId();
+
+    meetingsRepository
+        .deleteById(meetingId);
+
+    return !meetingsRepository.findById(meetingId).isPresent();
   }
 }

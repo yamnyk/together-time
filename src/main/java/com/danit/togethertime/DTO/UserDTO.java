@@ -17,14 +17,6 @@ public class UserDTO {
 
   private String birdthDate;
 
-  public UserDTO(UserEntity userEntity) {
-    this.id = userEntity.getUserID();
-    this.firstName = userEntity.getFirstName();
-    this.secondName = userEntity.getSecondName();
-    this.login = userEntity.getLogin();
-    this.birdthDate = this.getStringDateBirdth(userEntity.getDateOfBirth());
-  }
-
   private String getStringDateBirdth(Timestamp dateOfBirth) {
     return String.valueOf(dateOfBirth.getYear()) + " "
         + String.valueOf(dateOfBirth.getMonth() + 1) + " "

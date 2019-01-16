@@ -7,12 +7,11 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 public class CommentDTO {
+  private Long commentId;
+
   private UserDTO author;
 
   private String message;
 
-  public CommentDTO(CommentEntity commentEntity) {
-    this.author = new UserDTO(commentEntity.getAuthor());
-    this.message = commentEntity.getCommentText();
-  }
+  private Long meeting;
 }
