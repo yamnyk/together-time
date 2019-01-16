@@ -2,9 +2,20 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title th:text="${user.firstName} + ${user.secondName}"></title>
+    <title th:text="${user.firstName} + ' ' + ${user.secondName}"></title>
+    <link rel="stylesheet" href="../static/css/reset.css" th:href="@{../css/reset.css}">
+    <link rel="stylesheet" href="../static/css/style.css" th:href="@{../css/style.css}">
 </head>
 <body>
-<h1 class="username-title">Hello from user page</h1>
+<div class="container">
+    <h1 class="username-title" th:text="${user.firstName} + ' ' + ${user.secondName}">Hello from user page</h1>
+
+    <!--<div class="user-creds-wrapper">-->
+        <!--<th:block>-->
+            <!---->
+        <!--</th:block>-->
+    <!--</div>-->
+
+</div>
 </body>
 </html>
