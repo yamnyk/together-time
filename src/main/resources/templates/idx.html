@@ -33,7 +33,7 @@
                 <div class="meeting-item_comments all-cols-width" >
                     <div class="comments-item" th:each="comment : ${meeting.comments}">
                         <p class="comments-item__author comment-text" th:text="${comment.author.login} +':'"></p>
-                        <p class="comments-item__text comment-text" th:text="${comment.message}"></p>
+                        <p class="comments-item__text comment-text" th:text="${comment.commentText}"></p>
                     </div>
                 </div>
             </form>

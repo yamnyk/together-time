@@ -17,7 +17,7 @@ public class MeetingDTO {
 
   private String duration;
 
-  private List<UserDTO> participants = new ArrayList<>();
+  private List<UserDTO> participants;
 
-  private List<CommentDTO> comments = new ArrayList<>();
+  private List<CommentDTO> comments;
 }

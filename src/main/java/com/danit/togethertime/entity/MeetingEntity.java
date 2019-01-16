@@ -26,7 +26,7 @@ public class MeetingEntity {
   private Timestamp dateEnd;
 
   @OneToMany(mappedBy = "meetingLink", fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
-  private List<CommentEntity> commentEntities;
+  private List<CommentEntity> comments;
 
   @ManyToMany
   @JoinTable(
