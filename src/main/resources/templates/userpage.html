@@ -8,13 +8,14 @@
 </head>
 <body>
 <div class="container">
-    <h1 class="username-title" th:text="${user.firstName} + ' ' + ${user.secondName}">Hello from user page</h1>
+    <a href="/" class="home-btn">Meetings</a>
+    <h1 class="username-title" th:text="${user.firstName} + ' ' + ${user.secondName}"></h1>
 
-    <!--<div class="user-creds-wrapper">-->
-        <!--<th:block>-->
-            <!---->
-        <!--</th:block>-->
-    <!--</div>-->
+    <div class="user-creds-wrapper">
+        <p class="user-creds-item" th:text="${user.gender ? 'male' : 'female'}"></p>
+        <p class="user-creds-item" th:text="${user.login}"></p>
+        <p class="user-creds-item" th:text="${#dates.format(user.birdthDate, 'dd-MMM-yyyy')}"></p>
+    </div>
 
 </div>
 </body>

@@ -1,9 +1,8 @@
 package com.danit.togethertime.DTO;
 
-import com.danit.togethertime.entity.UserEntity;
 import lombok.Data;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
 @Data
 public class UserDTO {
@@ -13,13 +12,9 @@ public class UserDTO {
 
   private String secondName;
 
+  private Boolean gender;
+
   private String login;
 
-  private String birdthDate;
-
-  private String getStringDateBirdth(Timestamp dateOfBirth) {
-    return String.valueOf(dateOfBirth.getYear()) + " "
-        + String.valueOf(dateOfBirth.getMonth() + 1) + " "
-        + String.valueOf(dateOfBirth.getDay());
-  }
+  private Date birdthDate;
 }

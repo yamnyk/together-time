@@ -163,8 +163,28 @@ section {
 
 /******************** U S E R   P A G E ***********************/
 
+.home-btn {
+    display: block;
+    position: relative;
+    text-decoration: none;
+    text-transform: lowercase;
+    font-size: 24px;
+    margin-top: 25px;
+    color: #c1c1c1;
+}
+
+.home-btn::before {
+    content: "";
+    border: 5px solid transparent;
+    border-right: 5px solid #c1c1c1;
+    position: absolute;
+    left: -15px;
+    top: 40%;
+
+}
+
 .username-title {
     font-size: 36px;
-    margin: 50px 0;
+    margin: 25px 0 50px;
 }
 

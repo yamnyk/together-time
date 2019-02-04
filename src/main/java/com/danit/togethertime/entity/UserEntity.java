@@ -5,7 +5,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -31,5 +31,5 @@ public class UserEntity {
   private boolean gender;
 
   @Column(name = "date_of_birth")
-  private Timestamp dateOfBirth;
+  private Date birdthDate;
 }
